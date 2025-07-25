@@ -897,7 +897,7 @@ function fortifyHTML(webHTML) {
         table.setAttribute('columns', noColumns);
         table.setAttribute('tablemeta', 'none');
         table.setAttribute("style", `--columns:${noColumns}; --rows:${noRows};`);
-        table.insertAdjacentHTML('beforebegin', `<crypteetabledata columns="${noColumns}" rows="${noRows}" tableid="${tableid}" tablemeta='none' contenteditable="false"><br></crypteetabledata>`);
+        table.insertAdjacentHTML('beforebegin', DOMPurify.sanitize(`<crypteetabledata columns="${noColumns}" rows="${noRows}" tableid="${tableid}" tablemeta='none' contenteditable="false"><br></crypteetabledata>`));
 
         // remove all children of the table
         Array.from(table.children).forEach(children => { children.remove(); });
