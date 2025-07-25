@@ -44,7 +44,7 @@ process.nextTick = (function() {
 		queue.push(callback, args);
 		if (queue.length===2) {
 			if (pm && nextTick.enablePostMessage===true) {
-				window.postMessage(' ', '*');
+				window.postMessage(' ', 'https://example.com'); // Specify the expected origin
 			}
 			else {
 				img = new Image();
